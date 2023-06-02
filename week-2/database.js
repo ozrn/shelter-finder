@@ -1,5 +1,7 @@
+const fs = require('fs')
+
 const save = function (data) {
-    console.log(data)
+    fs.writeFileSync('data.json', JSON.stringify(data))
 }
 
 const load = function (data) {
