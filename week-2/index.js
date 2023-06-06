@@ -3,7 +3,7 @@ const Shelter = require('./shelter')
 const Stocks = require('./stocks')
 const Database = require('./database')
 
-const walter = new Survivor(12345, true)
+const walter = new Survivor('Walter Brown', 12345, true)
 const lisa = new Survivor(23456, false)
 
 const eastShelter = new Shelter('East', 195, 200)
@@ -21,4 +21,4 @@ westShelter.checkAvailabilityFor(lisa)
 foodPackage.checkStocks(50)
 carePackage.checkStocks(250)
 
-Database.save(walter)
+Database.save('data.json', walter)
