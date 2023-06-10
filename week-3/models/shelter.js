@@ -1,14 +1,24 @@
+const Survivor = require("./survivor")
+
 module.exports = class Shelter {
-    constructor(location, numOfResidents, maxCapacity) {
-        this.location = location
-        this.numOfResidents = numOfResidents
+    constructor(name, maxCapacity, id, residents = []) {
+        this.name = name
         this.maxCapacity = maxCapacity
+        this.id = id
+        this.residents = residents
     }
-    checkAvailabilityFor(person) {
+
+    checkAvailability() {
         // method to check whether there is any available place in a shelter or not
-        (this.maxCapacity > this.numOfResidents) ?
-            console.log(`There is an available place for the survivor with the ID number of ${person.idNum} in the ${this.location} shelter.`)
+        (this.maxCapacity > this.residents.length) ?
+            console.log(`There are ${this.maxCapacity - this.residents.length} available places in this shelter.`)
             : console.log(`Please check another shelter for its availability.`)
 
+    }
+
+    static create({ name, maxCapacity, id, residents }) {
+        const newShelter = new Shelter(name, maxCapacity, id, residents)
+        newShelter.residents = residents.map(Survivor.create)
+        return newShelter
     }
 }
