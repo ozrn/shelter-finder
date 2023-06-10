@@ -1,0 +1,16 @@
+[
+  {
+    "fullName": "Walter Brown",
+    "idNum": 12345,
+    "hasFamilyMember": true,
+    "id": 1,
+    "place": "East"
+  },
+  {
+    "fullName": "Lisa Firth",
+    "idNum": 23456,
+    "hasFamilyMember": false,
+    "id": 2,
+    "place": "West"
+  }
+]
