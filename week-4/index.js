@@ -10,6 +10,7 @@ app.set('view engine', 'pug')
 app.get('/', (req, res) => {
     res.render('index')
 })
+
 // Show all survivors in the specified path when they're being browsed
 app.get('/survivor/all', async (req, res) => {
     const survivors = await SurvivorService.findAll()
@@ -26,6 +27,27 @@ app.get('/shelter/all', async (req, res) => {
 app.get('/stock/all', async (req, res) => {
     const stocks = await StockService.findAll()
     res.render('stock', { stocks: stocks })
+})
+
+// Get a specific survivor info
+app.get('/survivor/:id', async (req, res) => {
+    const id = req.params.id
+    const survivorData = await SurvivorService.find(id)
+    res.send(survivorData)
+})
+
+// Get a specific shelter info
+app.get('/shelter/:id', async (req, res) => {
+    const id = req.params.id
+    const shelterData = await ShelterService.find(id)
+    res.send(shelterData)
+})
+
+// Get a specific stock info
+app.get('/stock/:id', async (req, res) => {
+    const id = req.params.id
+    const stockData = await StockService.find(id)
+    res.send(stockData)
 })
 
 app.listen(3000, () => {
