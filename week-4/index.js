@@ -1,6 +1,7 @@
 const express = require('express')
 const SurvivorService = require('./services/survivor-service')
 const ShelterService = require('./services/shelter-service')
+const StockService = require('./services/stock-service')
 
 const app = express()
 
@@ -21,7 +22,12 @@ app.get('/shelter/all', async (req, res) => {
     res.render('shelter', { shelters: shelters })
 })
 
+// Get stock data of all products in the specified URL
+app.get('/stock/all', async (req, res) => {
+    const stocks = await StockService.findAll()
+    res.render('stock', { stocks: stocks })
+})
+
 app.listen(3000, () => {
     console.log('Server is listening on port 3000')
 })
-
