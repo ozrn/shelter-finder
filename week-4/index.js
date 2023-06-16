@@ -71,6 +71,24 @@ app.post('/stock', async (req, res) => {
     res.send(newStock)
 })
 
+// Delete a specific survivor
+app.delete('/survivor/:id', async (req, res) => {
+    await SurvivorService.del(req.params.id)
+    res.send('Successfully deleted')
+})
+
+// Delete a specific shelter
+app.delete('/shelter/:id', async (req, res) => {
+    await ShelterService.del(req.params.id)
+    res.send('Successfully deleted')
+})
+
+// Delete a specific stock
+app.delete('/stock/:id', async (req, res) => {
+    await StockService.del(req.params.id)
+    res.send('Successfully deleted')
+})
+
 app.listen(3000, () => {
     console.log('Server is listening on port 3000')
 })
