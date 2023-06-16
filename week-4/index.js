@@ -1,10 +1,13 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+
 const SurvivorService = require('./services/survivor-service')
 const ShelterService = require('./services/shelter-service')
 const StockService = require('./services/stock-service')
 
 const app = express()
 
+app.use(bodyParser.json())
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
@@ -48,6 +51,24 @@ app.get('/stock/:id', async (req, res) => {
     const id = req.params.id
     const stockData = await StockService.find(id)
     res.send(stockData)
+})
+
+// Create a new survivor
+app.post('/survivor', async (req, res) => {
+    const newSurvivor = await SurvivorService.add(req.body)
+    res.send(newSurvivor)
+})
+
+// Create a new shelter
+app.post('/shelter', async (req, res) => {
+    const newShelter = await ShelterService.add(req.body)
+    res.send(newShelter)
+})
+
+// Create a new stock
+app.post('/stock', async (req, res) => {
+    const newStock = await StockService.add(req.body)
+    res.send(newStock)
 })
 
 app.listen(3000, () => {
