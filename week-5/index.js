@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+require('./mongodb-connection')
 
 const survivorRouter = require('./routes/survivor')
 const shelterRouter = require('./routes/shelter')
@@ -21,3 +22,4 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
     console.log('Server is listening on port 3000')
 })
+
