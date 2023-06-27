@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 Here is the stock info of all products
+    each stock in stocks
+      h4 There are #{stock.amountOfStock} #{stock.typeOfStock} packages in stock
+      
