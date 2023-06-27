@@ -1,8 +1,14 @@
 const mongoose = require('mongoose')
 
 const StockSchema = new mongoose.Schema({
-    typeOfStock: String,
-    amountOfStock: Number
+    typeOfStock: {
+        type: String,
+        required: true
+    },
+    amountOfStock: {
+        type: Number,
+        required: true
+    }
 })
 
 const StockModel = mongoose.model('Stock', StockSchema)

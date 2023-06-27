@@ -1,14 +1,28 @@
 const mongoose = require('mongoose')
 
 const ShelterSchema = new mongoose.Schema({
-    name: String,
-    address: String,
-    maxCapacity: Number
+    name: {
+        type: String,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    maxCapacity: {
+        type: Number,
+        required: true
+    },
+    residents: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Survivor'
+    }]
 })
 
 const ShelterModel = mongoose.model('Shelter', ShelterSchema)
 
 module.exports = ShelterModel
+
 // const Survivor = require("./survivor")
 
 // module.exports = class Shelter {
@@ -33,3 +47,4 @@ module.exports = ShelterModel
 //         return newShelter
 //     }
 // }
+

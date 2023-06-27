@@ -1,10 +1,27 @@
 const mongoose = require('mongoose')
 
 const SurvivorSchema = new mongoose.Schema({
-    fullName: String,
-    gender: String,
-    age: Number
+    fullName: {
+        type: String,
+        required: true
+    },
+    gender: {
+        type: String,
+        required: true
+    },
+    age: {
+        type: Number,
+        required: true
+    },
+    place: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Shelter'
+    }]
 })
+
+SurvivorSchema.methods.stay = function (place) {
+    this.place.push(place)
+}
 
 const SurvivorModel = mongoose.model('Survivor', SurvivorSchema)
 
@@ -34,3 +51,5 @@ module.exports = SurvivorModel
 //         return new Survivor(fullName, idNum, hasFamilyMember, id, place)
 //     }
 // }
+
+
