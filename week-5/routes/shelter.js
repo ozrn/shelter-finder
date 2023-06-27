@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const newShelter = await SurvivorService.add(req.body)
+    const newShelter = await ShelterService.add(req.body)
     res.send(newShelter)
 })
 
