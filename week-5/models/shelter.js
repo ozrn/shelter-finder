@@ -15,9 +15,14 @@ const ShelterSchema = new mongoose.Schema({
     },
     residents: [{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Survivor'
+        ref: 'Survivor',
+        autopopulate: {
+            maxDepth: 1
+        }
     }]
 })
+
+ShelterSchema.plugin(require('mongoose-autopopulate'))
 
 const ShelterModel = mongoose.model('Shelter', ShelterSchema)
 
@@ -47,4 +52,5 @@ module.exports = ShelterModel
 //         return newShelter
 //     }
 // }
+
 

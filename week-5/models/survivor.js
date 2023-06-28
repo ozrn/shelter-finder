@@ -13,15 +13,16 @@ const SurvivorSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    place: [{
+    shelter: [{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Shelter'
+        ref: 'Shelter',
+        autopopulate: {
+            maxDepth: 1
+        }
     }]
 })
 
-SurvivorSchema.methods.stay = function (place) {
-    this.place.push(place)
-}
+SurvivorSchema.plugin(require('mongoose-autopopulate'))
 
 const SurvivorModel = mongoose.model('Survivor', SurvivorSchema)
 
