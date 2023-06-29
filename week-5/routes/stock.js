@@ -23,4 +23,11 @@ router.delete('/:id', async (req, res) => {
     res.send('Successfully deleted')
 })
 
+router.get('/check/:id/:neededAmount', async (req, res) => {
+    const stockData = await StockService.find(req.params.id)
+    const neededAmount = req.params.neededAmount
+    const stockInquiry = await stockData.inquireStock(neededAmount)
+    res.send(stockInquiry)
+})
+
 module.exports = router

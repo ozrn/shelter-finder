@@ -19,8 +19,14 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-    await ShelterService.del(req.params.id)
-    res.send('Successfully deleted')
+    const shelterData = await ShelterService.del(req.params.id)
+    res.send(shelterData)
+})
+
+router.get('/check/:id', async(req, res) => {
+    const shelterData = await ShelterService.find(req.params.id)
+    const shelterCheck= await shelterData.checkAvailability()
+    res.send(shelterCheck)
 })
 
 module.exports = router
