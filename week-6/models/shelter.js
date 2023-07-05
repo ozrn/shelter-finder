@@ -36,10 +36,16 @@ ShelterSchema.methods.checkAvailability = function () {
         : console.log(`Please check another shelter for its availability.`)
 }
 
+ShelterSchema.methods.showAvailableShelters = function () {
+    return ShelterModel.find({
+        maxCapacity: { $gt: this.residents.length }
+    })
+}
 
 const ShelterModel = mongoose.model('Shelter', ShelterSchema)
 
 module.exports = ShelterModel
+
 
 
 

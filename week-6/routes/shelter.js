@@ -29,6 +29,13 @@ router.get('/check/:id', async (req, res) => {
     res.send(shelterCheck)
 })
 
+router.get('/show-available-shelters/:id', async(req, res) => {
+    const shelterData = await ShelterService.find(req.params.id)
+    const availableShelters = await shelterData.showAvailableShelters()
+    res.send(availableShelters)
+})
+
 module.exports = router
+
 
 
