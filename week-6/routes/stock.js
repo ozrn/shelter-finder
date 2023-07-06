@@ -5,12 +5,12 @@ const StockService = require('../services/stock-service')
 
 router.get('/all', async (req, res) => {
     const stocks = await StockService.findAll()
-    res.render('stock', { stocks: stocks })
+    res.render('stock', { stocks })
 })
 
 router.get('/:id', async (req, res) => {
-    const stockData = await StockService.find(req.params.id)
-    res.send(stockData)
+    const stock = await StockService.find(req.params.id)
+    res.render('stock-info', { stock })
 })
 
 router.post('/', async (req, res) => {
