@@ -6,12 +6,12 @@ const ShelterService = require('../services/shelter-service')
 
 router.get('/all', async (req, res) => {
     const survivors = await SurvivorService.findAll()
-    res.render('survivor', { survivors: survivors })
+    res.render('survivor', { survivors })
 })
 
 router.get('/:id', async (req, res) => {
     const survivor = await SurvivorService.find(req.params.id)
-    res.render('survivor-data', { survivor: survivor })
+    res.render('survivor-info', { survivor })
 })
 
 router.post('/', async (req, res) => {
