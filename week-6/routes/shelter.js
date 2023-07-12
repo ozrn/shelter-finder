@@ -8,6 +8,17 @@ router.get('/all', async (req, res) => {
     res.render('shelter', { shelters })
 })
 
+router.get('/all/show-available-shelters', async (req, res) => {
+    const availableShelters = await ShelterService.showAvailableShelters()
+    res.send(availableShelters)
+})
+
+router.get('/check/:id', async (req, res) => {
+    const shelterData = await ShelterService.find(req.params.id)
+    const shelterCheck = await shelterData.checkAvailability()
+    res.send(shelterCheck)
+})
+
 router.get('/:id', async (req, res) => {
     const shelter = await ShelterService.find(req.params.id)
     res.render('shelter-info', { shelter })
@@ -21,18 +32,6 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const shelterData = await ShelterService.del(req.params.id)
     res.send(shelterData)
-})
-
-router.get('/check/:id', async (req, res) => {
-    const shelterData = await ShelterService.find(req.params.id)
-    const shelterCheck = await shelterData.checkAvailability()
-    res.send(shelterCheck)
-})
-
-router.get('/show-available-shelters/:id', async (req, res) => {
-    const shelterData = await ShelterService.find(req.params.id)
-    const availableShelters = await shelterData.showAvailableShelters()
-    res.send(availableShelters)
 })
 
 module.exports = router
