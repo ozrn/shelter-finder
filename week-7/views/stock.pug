@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h3 All products that can be checked if available in stock
+    each stock in stocks
+      li #{stock.typeOfStock}
+      
