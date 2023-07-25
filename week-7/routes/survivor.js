@@ -11,6 +11,7 @@ router.get('/all', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const survivor = await SurvivorService.find(req.params.id)
+    if (!survivor) res.status(404)
     res.render('survivor-info', { survivor })
 })
 
