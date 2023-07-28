@@ -74,3 +74,46 @@ test('Delete a survivor', async t => {
     t.is(fetch.status, 404)
 })
 
+test('Survivor can stay in a shelter', async t => {
+    const newSurvivor = { fullName: 'Anna Pavlova', gender: 'female', age: 68, shelter: [] }
+
+    const testShelter = {
+        name: 'Shelter testing',
+        address: { city: 'city testing', addressDetail: 'address detail testing' },
+        maxCapacity: 400,
+        residents: []
+    }
+
+    // create a survivor
+    const createdSurvivor = (await request(app)
+        .post('/survivor')
+        .send(newSurvivor)).body
+
+    // create a shelter
+    const createdShelter = (await request(app)
+        .post('/shelter')
+        .send(testShelter)).body
+
+    // the survivor stays in the shelter we just created
+    const stayShelterRes = await request(app)
+        .post(`/survivor/${createdSurvivor._id}/shelter`)
+        .send({ shelter: createdShelter._id })
+
+    // check the server response success
+    t.is(stayShelterRes.status, 200)
+
+    // response body is the altered data of the survivor
+    const alteredSurvivor = stayShelterRes.body
+
+    // check that survivor has that shelter on her/his shelter
+    t.is(alteredSurvivor.shelter[0]._id, createdShelter._id)
+
+    // check that survivor's shelter is the shelter we just created
+    t.deepEqual(alteredSurvivor.shelter[0], createdShelter)
+
+    // alteredSurvivor is not the same with the first created survivor
+    // createdSurvivor had no shelter
+    // alteredSurvivor has the shelter now!
+    t.notDeepEqual(alteredSurvivor, createdSurvivor)
+})
+
