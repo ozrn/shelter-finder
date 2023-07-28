@@ -21,6 +21,7 @@ router.get('/check/:id', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const shelter = await ShelterService.find(req.params.id)
+    if (!shelter) res.status(404)
     res.render('shelter-info', { shelter })
 })
 
