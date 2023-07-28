@@ -10,6 +10,7 @@ router.get('/all', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const stock = await StockService.find(req.params.id)
+    if (!stock) res.status(404)
     res.render('stock-info', { stock })
 })
 
