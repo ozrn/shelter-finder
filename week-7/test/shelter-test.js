@@ -10,6 +10,14 @@ test('Get list of all shelters', async t => {
   t.is(res.status, 200)
 })
 
+// Test for getting a list of all available shelters that can be stayed at immediately!
+test('Get list of all available shelters', async t => {
+  t.plan(1)
+
+  const res = await request(app).get('/shelter/all/show-available-shelters')
+  t.is(res.status, 200)
+})
+
 // Test for creating a new shelter
 test('Create a new shelter', async t => {
   t.plan(5)
