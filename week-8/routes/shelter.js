@@ -8,6 +8,11 @@ router.get('/all', async (req, res) => {
     res.render('shelter', { shelters })
 })
 
+router.get('/all/json', async (req, res) => {
+    const shelters = await ShelterService.findAll()
+    res.send(shelters)
+})
+
 router.get('/all/show-available-shelters', async (req, res) => {
     const availableShelters = await ShelterService.showAvailableShelters()
     res.send(availableShelters)
