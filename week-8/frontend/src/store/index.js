@@ -3,10 +3,14 @@ import axios from 'axios'
 
 export default createStore({
   state: {
+    shelters: []
   },
   getters: {
   },
   mutations: {
+    SET_SHELTERS(state, data) {
+      state.shelters = data
+    }
   },
   actions: {
     async fetchShelters({ commit }) {

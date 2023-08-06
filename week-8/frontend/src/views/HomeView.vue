@@ -1,27 +1,20 @@
-<template>
-<div class="home">
-  <MainPage msg="Do you need assistance?"/>
-</div>
-</template>
-
 <script>
 // @ is an alias to /src
-import MainPage from "@/components/MainPage.vue"
-import { mapState, mapActions } from "vuex"
+import MainPage from '@/components/MainPage.vue'
 
 export default {
-  name: "HomeView",
+  name: 'HomeView',
   components: {
     MainPage,
-  },
-  computed: {
-    ...mapState(['shelters'])
-  },
-  methods: {
-    ...mapActions(['fetchShelters'])
-  },
-  created() {
-    this.fetchShelters()
   }
 }
 </script>
+
+<template>
+  <div class='home'>
+    <MainPage msg='Do you need assistance?' />
+  </div>
+</template>
+
+
+
