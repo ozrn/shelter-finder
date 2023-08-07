@@ -8,6 +8,11 @@ router.get('/all', async (req, res) => {
     res.render('stock', { stocks })
 })
 
+router.get('/all/json', async (req, res) => {
+    const stocks = await StockService.findAll()
+    res.send(stocks)
+})
+
 router.get('/:id', async (req, res) => {
     const stock = await StockService.find(req.params.id)
     if (!stock) res.status(404)
