@@ -6,7 +6,7 @@ export default {
     return {
       fullName: '',
       age: '',
-      gender: ''
+      gender: 'female'
     }
   }
 }
@@ -23,14 +23,17 @@ export default {
       <input type="text" required v-model="age">
 
       <label>Gender: </label>
-      <input type="text" required v-model="gender">
+      <select v-model='gender'>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
     </form>
   </div>
 </template>
 
 <style>
- form {
-  max-width: 420px;
+form {
+  max-width: 400px;
   margin: 30px auto;
   background: white;
   text-align: left;
@@ -38,19 +41,20 @@ export default {
   border-radius: 10px;
 }
 
- label {
+label {
   color: #aaa;
   display: inline-block;
-  margin: 25px 0 15px;
-  font-size: 0.6 rem;
+  margin: 15px 0 10px;
+  font-size: 0.4 rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
 }
 
- input {
+input,
+select {
   display: block;
-  padding: 10px 6px;
+  padding: 6px 4px;
   width: 100%;
   box-sizing: border-box;
   border: none;
