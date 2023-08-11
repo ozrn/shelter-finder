@@ -2,8 +2,8 @@
   <div>
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/shelter">Shelters</router-link> |
-      <router-link to="/stock">Stocks</router-link>
+      <router-link :to="{ name: 'shelter' }">Shelters</router-link> |
+      <router-link :to="{ name: 'stock' }">Stocks</router-link>
     </nav>
     <router-view />
   </div>
