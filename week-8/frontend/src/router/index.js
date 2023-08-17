@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ShelterView from '../views/ShelterView.vue'
+import ShelterDetail from '../components/shelter-detail.vue'
+import StockView from '../views/StockView.vue'
 
 const routes = [
   {
@@ -10,15 +13,17 @@ const routes = [
   {
     path: '/shelter',
     name: 'shelter',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "shelter" */ '../views/ShelterView.vue')
+    component: ShelterView
+  },
+  {
+    path: '/shelter/:id',
+    name: 'shelter-detail',
+    component: ShelterDetail
   },
   {
     path: '/stock',
     name: 'stock',
-    component: () => import('../views/StockView.vue')
+    component: StockView
   }
 ]
 

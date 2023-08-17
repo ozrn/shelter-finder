@@ -4,6 +4,7 @@ import axios from 'axios'
 export default createStore({
   state: {
     shelters: [],
+    shelter: {},
     stocks: []
   },
   getters: {
@@ -11,6 +12,9 @@ export default createStore({
   mutations: {
     SET_SHELTERS(state, data) {
       state.shelters = data
+    },
+    SET_SHELTER(state, data) {
+      state.shelter = data
     },
     SET_STOCKS(state, data) {
       state.stocks = data
@@ -21,6 +25,15 @@ export default createStore({
       try {
         const result = await axios.get('http://localhost:3000/shelter/all/json')
         commit('SET_SHELTERS', result.data)
+      }
+      catch (err) {
+        console.log(err)
+      }
+    },
+    async fetchShelter({ commit }, id) {
+      try {
+        const result = await axios.get(`http://localhost:3000/shelter/${id}/json`)
+        commit('SET_SHELTER', result.data)
       }
       catch (err) {
         console.log(err)
