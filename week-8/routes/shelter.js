@@ -8,12 +8,12 @@ router.get('/all', async (req, res) => {
     res.render('shelter', { shelters })
 })
 
-router.get('/all/json', async (req, res) => {
-    const shelters = await ShelterService.findAll()
-    res.send(shelters)
+router.get('/all/show-available-shelters', async (req, res) => {
+    const availableShelters = await ShelterService.showAvailableShelters()
+    res.send(availableShelters)
 })
 
-router.get('/all/show-available-shelters', async (req, res) => {
+router.get('/all/show-available-shelters/json', async (req, res) => {
     const availableShelters = await ShelterService.showAvailableShelters()
     res.send(availableShelters)
 })
@@ -28,6 +28,12 @@ router.get('/:id', async (req, res) => {
     const shelter = await ShelterService.find(req.params.id)
     if (!shelter) res.status(404)
     res.render('shelter-info', { shelter })
+})
+
+router.get('/:id/json', async (req, res) => {
+    const shelter = await ShelterService.find(req.params.id)
+    if (!shelter) res.status(404)
+    res.send(shelter)
 })
 
 router.post('/', async (req, res) => {

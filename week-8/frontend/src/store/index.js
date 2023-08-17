@@ -23,7 +23,7 @@ export default createStore({
   actions: {
     async fetchShelters({ commit }) {
       try {
-        const result = await axios.get('http://localhost:3000/shelter/all/json')
+        const result = await axios.get('http://localhost:3000/shelter/all/show-available-shelters/json')
         commit('SET_SHELTERS', result.data)
       }
       catch (err) {
