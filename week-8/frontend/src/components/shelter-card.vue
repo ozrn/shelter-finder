@@ -2,32 +2,30 @@
 
 export default {
   name: 'ShelterCard',
-  props: ['shelter']
+  props: ['shelter'],
+  computed: {
+    shelterUrl() {
+      return `/shelter/${this.shelter._id}`
+    }
+  }
 }
 </script>
 
-<template lang = 'pug'>
-div.name {{ shelter.name }}
+<template lang='pug'>
+div.card
+  h2 
+    router-link(:to='shelterUrl') {{ shelter.name }}
+      
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
+.card {
   display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 20px;
+  min-width: 200px;
 }
 </style>
-
