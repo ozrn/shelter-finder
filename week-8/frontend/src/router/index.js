@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ShelterView from '../views/ShelterView.vue'
-import ShelterDetail from '../components/shelter-detail.vue'
+import ShelterView from '../views/shelter/ShelterView.vue'
+import Shelter from '../views/shelter/Shelter.vue'
 import StockView from '../views/StockView.vue'
 
 const routes = [
@@ -17,8 +17,8 @@ const routes = [
   },
   {
     path: '/shelter/:id',
-    name: 'shelter-detail',
-    component: ShelterDetail
+    name: 'specific-shelter',
+    component: Shelter
   },
   {
     path: '/stock',
