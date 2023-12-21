@@ -1,22 +1,32 @@
 <script>
 
+import { mapState, mapActions } from 'vuex'
+
 export default {
-  name: 'ShelterCard',
-  props: ['shelter'],
-  computed: {
-    shelterUrl() {
-      return `/shelter/${this.shelter._id}`
+    name: 'ShelterCard',
+    props: [
+      'shelter'
+    ],
+    computed: {
+        ...mapState(['shelter'])
+    },
+    methods: {
+        ...mapActions(['fetchShelter'])
+    },
+    created() {
+        this.fetchShelter(this.$route.params.id)
     }
-  }
 }
-</script>
+</script>  
+   
 
 <template lang='pug'>
 div.card
   h2 
-    router-link(:to='shelterUrl') {{ shelter.name }}
+    router-link(:to="'/' + shelter._id + '/'") {{ shelter.name }}
       
 </template>
+
 
 <style scoped>
 .card {
