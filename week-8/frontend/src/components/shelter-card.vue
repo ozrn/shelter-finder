@@ -7,7 +7,7 @@ export default {
     props: [
       'shelter'
     ],
-    computed: {
+   computed: {
         ...mapState(['shelter'])
     },
     methods: {
@@ -22,9 +22,8 @@ export default {
 
 <template lang='pug'>
 div.card
-  h2 
+    h2 
     router-link(:to="'/' + shelter._id + '/'") {{ shelter.name }}
-      
 </template>
 
 

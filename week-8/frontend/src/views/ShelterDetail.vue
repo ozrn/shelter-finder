@@ -1,21 +1,18 @@
 <script>
 
-import ShelterList from '../components/shelter-list.vue'
+import ShelterCard from '../components/shelter-card.vue'
 
 export default {
   name: 'ShelterView',
   components: {
-    ShelterList
+    ShelterCard
   }
 }
 </script>
 
 <template>
-  <div><ShelterList /></div>
+  <div><ShelterCard /></div>
 </template>
 
 <style>
 </style>
-
-
-

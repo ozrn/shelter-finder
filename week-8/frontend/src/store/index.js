@@ -30,15 +30,15 @@ export default createStore({
         console.log(err)
       }
     },
-    async fetchShelter({ commit }, id) {
-      try {
-        const result = await axios.get(`http://localhost:3000/shelter/${id}/json`)
-        commit('SET_SHELTER', result.data)
-      }
-      catch (err) {
-        console.log(err)
-      }
-    },
+    // async fetchShelter({ commit }, id) {
+    //   try {
+    //     const result = await axios.get(`http://localhost:3000/shelter/${id}/json`)
+    //     commit('SET_SHELTER', result.data)
+    //   }
+    //   catch (err) {
+    //     console.log(err)
+    //   }
+    // },
     async fetchStocks({ commit }) {
       try {
         const result = await axios.get('http://localhost:3000/stock/all/json')
