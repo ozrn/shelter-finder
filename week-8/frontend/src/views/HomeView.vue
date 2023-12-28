@@ -11,7 +11,9 @@ export default {
 </script>
 
 <template>
-  <div><ShelterView /></div>
+  <div>
+    <ShelterView />
+  </div>
 </template>
 
 <style>

@@ -24,21 +24,22 @@ export default createStore({
     async fetchShelters({ commit }) {
       try {
         const result = await axios.get('http://localhost:3000/shelter/all/show-available-shelters/json')
+        console.log
         commit('SET_SHELTERS', result.data)
       }
       catch (err) {
         console.log(err)
       }
     },
-    // async fetchShelter({ commit }, id) {
-    //   try {
-    //     const result = await axios.get(`http://localhost:3000/shelter/${id}/json`)
-    //     commit('SET_SHELTER', result.data)
-    //   }
-    //   catch (err) {
-    //     console.log(err)
-    //   }
-    // },
+    async fetchShelter({ commit }, id) {
+      try {
+        const result = await axios.get(`http://localhost:3000/shelter/${id}/json`)
+        commit('SET_SHELTER', result.data)
+      }
+      catch (err) {
+        console.log(err)
+      }
+    },
     async fetchStocks({ commit }) {
       try {
         const result = await axios.get('http://localhost:3000/stock/all/json')
