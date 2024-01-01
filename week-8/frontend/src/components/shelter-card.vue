@@ -2,13 +2,7 @@
 
 export default {
     name: 'ShelterCard',
-    
-    data() {
-       return{
-            isAvailable: ''
-       } 
-    },
-    
+
     props: ['shelter'],
     
     computed: {
@@ -18,21 +12,19 @@ export default {
     },
     
     created() {
-        this.shelter.maxCapacity > this.shelter.residents.length ? this.isAvailable = true : false
-    
+     
   }}
   
   </script>
   
 <template lang='pug'>
 div.card
-    h2 
-    router-link(:to='shelterUrl') {{ shelter.name }}
+  router-link(:to='shelterUrl') {{ shelter.name }}
 
-    <p v-if ='isAvailable'> Available </p>
-    <p v-else> Sorry, no available place at the moment! </p>
+  <p v-if ='shelter.residents && shelter.residents.length < shelter.maxCapacity'>Available</p>
+  <p v-else>Sorry, no available place at the moment!</p>
 
-</template>
+  </template>
   
   <style scoped>
   h3 {
