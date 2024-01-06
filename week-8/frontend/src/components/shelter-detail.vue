@@ -16,7 +16,10 @@ export default {
   },
   
   methods: {
-    ...mapActions(['fetchShelter'])
+    ...mapActions(['fetchShelter']),
+    isRendered() {
+      return this.shelter.name ? true : false
+    }
   },
   
   created() {
@@ -28,8 +31,16 @@ export default {
 <template lang="pug">
 main
     section
-      shelter-card(:shelter='shelter')
+      //- shelter-card(:shelter='shelter')
+      <ul v-if = "shelter.address">
+        <li>City: {{shelter.address.city}}</li>
+        <li >Address: {{ shelter.address.addressDetail }}</li>
+        <li>{{ shelter.maxCapacity - shelter.residents.length }} places available</li>
+      </ul>
 </template>
 
 <style scoped>
+ul {
+  list-style-type: none;
+}
 </style>
