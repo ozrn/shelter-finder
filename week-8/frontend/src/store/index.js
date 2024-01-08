@@ -5,7 +5,7 @@ export default createStore({
   state: {
     shelters: [],
     shelter: {},
-    stocks: []
+    survivor: {}
   },
   getters: {
   },
@@ -16,8 +16,8 @@ export default createStore({
     SET_SHELTER(state, data) {
       state.shelter = data
     },
-    SET_STOCKS(state, data) {
-      state.stocks = data
+    SET_SURVIVOR(state, data) {
+      state.survivor = data
     }
   },
   actions: {
@@ -40,10 +40,11 @@ export default createStore({
         console.log(err)
       }
     },
-    async fetchStocks({ commit }) {
+
+    async fetchSurvivor({ commit }, id) {
       try {
-        const result = await axios.get('http://localhost:3000/stock/all/json')
-        commit('SET_STOCKS', result.data)
+        const result = await axios.get(`http://localhost:3000/survivor/${id}/json`)
+        commit('SET_SURVIVOR', result.data)
       }
       catch (err) {
         console.log(err)

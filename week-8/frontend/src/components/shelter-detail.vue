@@ -2,13 +2,16 @@
 
 import ShelterCard from '../components/shelter-card.vue'
 
+import ShelterForm from '../components/shelter-form.vue'
+
 import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'ShelterDetail',
   
   components: {
-    ShelterCard
+    ShelterCard,
+    ShelterForm
   },
   
   computed: {
@@ -17,26 +20,23 @@ export default {
   
   methods: {
     ...mapActions(['fetchShelter']),
-    isRendered() {
-      return this.shelter.name ? true : false
-    }
-  },
   
   created() {
     this.fetchShelter(this.$route.params.id)
   }
-}
+}}
 </script>
 
 <template lang="pug">
 main
     section
-      //- shelter-card(:shelter='shelter')
       <ul v-if = "shelter.address">
         <li>City: {{shelter.address.city}}</li>
         <li >Address: {{ shelter.address.addressDetail }}</li>
         <li>{{ shelter.maxCapacity - shelter.residents.length }} places available</li>
       </ul>
+      <p>Please fill out the form below to stay here</p><br><br>
+    <ShelterForm />
 </template>
 
 <style scoped>

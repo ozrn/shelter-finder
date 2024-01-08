@@ -15,6 +15,12 @@ router.get('/:id', async (req, res) => {
     res.render('survivor-info', { survivor })
 })
 
+router.get('/:id/json', async (req, res) => {
+    const survivor = await SurvivorService.find(req.params.id)
+    if (!survivor) res.status(404)
+    res.send(survivor)
+})
+
 router.post('/', async (req, res) => {
     const newSurvivor = await SurvivorService.add(req.body)
     res.send(newSurvivor)
