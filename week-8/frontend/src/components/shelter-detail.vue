@@ -30,12 +30,7 @@ export default {
 <template lang="pug">
 main
     section
-      <ul v-if = "shelter.address">
-        <li>City: {{shelter.address.city}}</li>
-        <li >Address: {{ shelter.address.addressDetail }}</li>
-        <li>{{ shelter.maxCapacity - shelter.residents.length }} places available</li>
-      </ul>
-      <p>Please fill out the form below to stay here</p><br><br>
+      <p>Please fill out the form below to stay in this shelter</p><br><br>
     <ShelterForm />
 </template>
 

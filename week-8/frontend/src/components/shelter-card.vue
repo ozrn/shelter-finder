@@ -23,6 +23,12 @@ div.card
 
   <p v-if ='shelter.residents && shelter.residents.length < shelter.maxCapacity'>Available</p>
   <p v-else>Sorry, no available place at the moment!</p>
+  <hr>
+  <ul v-if = "shelter.address">
+    <li>City: {{shelter.address.city}}</li><br>
+    <li >Address: {{ shelter.address.addressDetail }}</li><br>
+    <li>{{ shelter.maxCapacity - shelter.residents.length }} places available</li>
+  </ul>
 
   </template>
   

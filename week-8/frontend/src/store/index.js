@@ -49,6 +49,16 @@ export default createStore({
       catch (err) {
         console.log(err)
       }
+    },
+    
+    async createSurvivor({ commit }, survivor) {
+      try {
+        const result = await axios.post('http://localhost:3000/survivor/', survivor)
+        commit('SET_SURVIVOR', result.data)
+      }
+      catch (err) {
+        console.log(err)
+      }
     }
   },
   modules: {

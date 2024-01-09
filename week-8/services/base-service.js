@@ -1,4 +1,8 @@
 module.exports = class Service {
+    constructor(model, dbPath) {
+        this.model = model
+        this.dbPath = dbPath
+    }
     async findAll() {
         return this.model.find()
     }
