@@ -59,6 +59,16 @@ export default createStore({
       catch (err) {
         console.log(err)
       }
+    },
+
+    async stayShelter(context, payload) {
+      try {
+        await axios.post(`http://localhost:3000/shelter/${payload.shelterId}`, {survivorId: payload.survivorId} )
+        context.dispatch('fetchShelter', payload.shelterId)
+      }
+      catch (err) {
+        console.log(err)
+      }
     }
   },
   modules: {

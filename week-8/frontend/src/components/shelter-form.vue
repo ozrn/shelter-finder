@@ -2,15 +2,15 @@
     <div>
         <form @submit.prevent = "handleSubmit">
             <label for="fname">Full Name:</label>
-            <input type="text" id="fname" name="fname" v-model="fullName" placeholder="Full Name" required><br><br>
+            <input type="text" id="fname" name="fname" v-model="fullName" placeholder="Full Name"><br><br>
             <label for="gender">Gender:</label>
-            <select name="gender" v-model = "gender" required>
+            <select name="gender" v-model = "gender">
                 <option value="">Please select one…</option>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
             </select><br><br>
             <label for="age">Age:</label>
-            <input type="text" id="age" name="age" v-model="age" placeholder="Age" required><br><br>
+            <input type="text" id="age" name="age" v-model="age" placeholder="Age"><br><br>
             <div>
                 <button>Submit</button>
             </div>
@@ -39,7 +39,7 @@ export default {
 
     methods: {
 
-        ...mapActions(['createSurvivor']),
+        ...mapActions(['createSurvivor', 'stayShelter']),
 
         async handleSubmit() {
             
@@ -49,10 +49,19 @@ export default {
                     age: this.age
 
                 }
-                const newSurvivor = await this.createSurvivor(survivor)
+            const newSurvivor = await this.createSurvivor(survivor)
+
+            let shelterInfo = {
+                shelterId: this.$route.params.id,
+                survivorId: this.survivor._id
             }
 
-        }    
+            await this.stayShelter(shelterInfo)
+
+            //console.log(this.survivor._id)
+        } 
+
+        } 
            
     }    
     

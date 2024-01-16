@@ -26,12 +26,6 @@ router.post('/', async (req, res) => {
     res.send(newSurvivor)
 })
 
-router.post('/:id/shelter', async (req, res) => {
-    const survivor = await SurvivorService.find(req.params.id)
-    const shelter = await ShelterService.find(req.body.shelter)
-    await SurvivorService.stayShelter(survivor, shelter)
-    res.send(survivor)
-})
 
 router.delete('/:id', async (req, res) => {
     await SurvivorService.del(req.params.id)

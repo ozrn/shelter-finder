@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const ShelterService = require('../services/shelter-service')
+const SurvivorService = require('../services/survivor-service')
 
 router.get('/all', async (req, res) => {
     const shelters = await ShelterService.findAll()
@@ -39,6 +40,13 @@ router.get('/:id/json', async (req, res) => {
 router.post('/', async (req, res) => {
     const newShelter = await ShelterService.add(req.body)
     res.send(newShelter)
+})
+
+router.post('/:id/', async (req, res) => {
+    const shelter = await ShelterService.find(req.params.id)
+    const survivor = await SurvivorService.find(req.body.survivorId)
+    await SurvivorService.stayShelter(survivor, shelter)
+    res.send(survivor)
 })
 
 router.delete('/:id', async (req, res) => {
