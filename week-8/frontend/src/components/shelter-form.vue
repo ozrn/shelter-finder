@@ -23,14 +23,14 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    name: 'ShelterForm',
+  name: 'ShelterForm',
 
-    data() {
+  data() {
         
-        return {
-                fullName: '',
-                gender: '',
-                age:''
+    return {
+        fullName: '',
+        gender: '',
+        age:''
         }
     },
     computed: {
@@ -58,7 +58,7 @@ export default {
 
             await this.stayShelter(shelterInfo)
 
-            //console.log(this.survivor._id)
+            alert('submitted')
         } 
 
         } 
