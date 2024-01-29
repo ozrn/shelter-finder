@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const SurvivorSchema = new mongoose.Schema({
-    fullName: {
+    name: {
         type: String,
         required: true
     },
@@ -11,6 +11,14 @@ const SurvivorSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
+        required: true
+    },
+    breed: {
+        type: String,
+        required: true
+    },
+    hasMicrochip: {
+        type: Boolean,
         required: true
     },
     shelter: [{
