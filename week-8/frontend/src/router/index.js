@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShelterView from '../views/ShelterView.vue'
 import ShelterDetail from '../components/shelter-detail.vue'
+import FormInfo from '../components/form-info'
 
 
 const routes = [
@@ -20,7 +21,13 @@ const routes = [
     name: 'shelter-detail',
     component: ShelterDetail,
     props: true
+  },
+  {
+    path: '/form-info',
+    name: 'form-info',
+    component: FormInfo
   }
+
 ]
 
 const router = createRouter({

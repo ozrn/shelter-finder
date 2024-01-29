@@ -3,8 +3,8 @@
     <form @submit.prevent = "handleSubmit">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" v-model="name" placeholder="name"><br><br>
-      <label for="gender">Gender:</label>
-      <select name="gender" v-model = "gender">
+      <label for="sex">Sex:</label>
+      <select name="sex" v-model = "sex">
         <option value="">Please select one…</option>
         <option value="female">Female</option>
         <option value="male">Male</option>
@@ -34,7 +34,7 @@ export default {
         
     return {
       name: '',
-      gender: '',
+      sex: '',
       age:'',
       breed:'',
       hasMicrochip: Boolean
@@ -52,7 +52,7 @@ export default {
         
       let survivor = {
         name: this.name,
-        gender: this.gender,
+        sex: this.sex,
         age: this.age,
         breed: this.breed,
         hasMicrochip: this.hasMicrochip
@@ -65,6 +65,8 @@ export default {
       }
 
       await this.stayShelter(shelterInfo)
+
+      await this.$router.push('/form-info')
     } 
 
   } 

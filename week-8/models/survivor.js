@@ -5,7 +5,7 @@ const SurvivorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    gender: {
+    sex: {
         type: String,
         required: true
     },
