@@ -27,7 +27,11 @@ const SurvivorSchema = new mongoose.Schema({
         autopopulate: {
             maxDepth: 1
         }
-    }]
+    }],
+    type: {
+        type: String,
+        required: true
+    }
 })
 
 SurvivorSchema.plugin(require('mongoose-autopopulate'))

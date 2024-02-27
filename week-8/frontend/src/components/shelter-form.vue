@@ -1,6 +1,8 @@
 <template>
   <div>
     <form @submit.prevent = "handleSubmit">
+      <label for="type">Type of Pet:</label>
+      <input type="text" id="type" name="type" v-model="type" placeholder="type"><br><br>
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" v-model="name" placeholder="name"><br><br>
       <label for="sex">Sex:</label>
@@ -33,6 +35,7 @@ export default {
   data() {
         
     return {
+      type: '',
       name: '',
       sex: '',
       age:'',
@@ -51,6 +54,7 @@ export default {
     async handleSubmit() {
         
       let survivor = {
+        type: this.type,
         name: this.name,
         sex: this.sex,
         age: this.age,
