@@ -9,6 +9,11 @@ router.get('/all', async (req, res) => {
     res.render('survivor', { survivors })
 })
 
+router.get('/all/json', async (req, res) => {
+    const survivors = await SurvivorService.findAll()
+    res.send( survivors )
+})
+
 router.get('/:id', async (req, res) => {
     const survivor = await SurvivorService.find(req.params.id)
     if (!survivor) res.status(404)

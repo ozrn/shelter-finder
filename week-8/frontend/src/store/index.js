@@ -5,7 +5,8 @@ export default createStore({
   state: {
     shelters: [],
     shelter: {},
-    survivor: {}
+    survivor: {},
+    survivors: []
   },
   getters: {
   },
@@ -18,13 +19,15 @@ export default createStore({
     },
     SET_SURVIVOR(state, data) {
       state.survivor = data
+    },
+    SET_SURVIVORS(state, data) {
+      state.survivors = data
     }
   },
   actions: {
     async fetchShelters({ commit }) {
       try {
         const result = await axios.get('http://localhost:3000/shelter/all/show-available-shelters/json')
-        console.log
         commit('SET_SHELTERS', result.data)
       }
       catch (err) {
@@ -47,6 +50,16 @@ export default createStore({
         commit('SET_SURVIVOR', result.data)
       }
       catch (err) {
+        console.log(err)
+      }
+    },
+
+    async fetchSurvivors({ commit }) {
+      try {
+        const result = await axios.get('http://localhost:3000/survivor/all/json')
+        commit('SET_SURVIVORS', result.data)
+      }
+      catch(err) {
         console.log(err)
       }
     },
