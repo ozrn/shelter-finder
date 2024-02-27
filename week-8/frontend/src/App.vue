@@ -15,6 +15,7 @@
     <div class="navbar-start">
      <router-link class="navbar-item" to="/">Home</router-link>
      <router-link class="navbar-item" :to="{ name: 'shelter' }">Shelters</router-link>
+     <router-link class="navbar-item" :to="{name:'registered-pets'}">Registered Pets</router-link>
     </div>
     </div>
    </nav>

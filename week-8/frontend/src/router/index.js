@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ShelterView from '../views/ShelterView.vue'
 import ShelterDetail from '../components/shelter-detail.vue'
 import FormInfo from '../components/form-info'
+import RegisteredPets from '../views/RegisteredPets.vue'
 
 
 const routes = [
@@ -15,6 +16,11 @@ const routes = [
     path: '/shelters',
     name: 'shelter',
     component: ShelterView
+  },
+  {
+    path: '/registered-pets',
+    name: 'registered-pets',
+    component: RegisteredPets
   },
   {
     path: '/shelter/:id',
