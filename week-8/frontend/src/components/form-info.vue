@@ -1,7 +1,7 @@
 <template>
-  <div class="info">
+  <div class='info'>
     <p>The registration form has been submitted for {{ survivor.name }} successfully. Please check the details for the pet and shelter below!</p>
-    <ul v-if="shelter.address">
+    <ul v-if='shelter.address'>
      <li><span><b>Type of Pet:</b></span> {{ survivor.type }}</li>
      <hr>
      <li><span><b>Pet Name:</b></span> {{ survivor.name }}</li>

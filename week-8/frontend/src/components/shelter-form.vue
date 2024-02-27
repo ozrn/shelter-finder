@@ -1,25 +1,25 @@
 <template>
   <div>
-    <form @submit.prevent = "handleSubmit">
-      <label for="type">Type of Pet:</label>
-      <input type="text" id="type" name="type" v-model="type" placeholder="type"><br><br>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" v-model="name" placeholder="name"><br><br>
-      <label for="sex">Sex:</label>
-      <select name="sex" v-model = "sex">
-        <option value="">Please select one…</option>
-        <option value="female">Female</option>
-        <option value="male">Male</option>
-      </select><br><br>
-      <label for="age">Age:</label>
-      <input type="text" id="age" name="age" v-model="age" placeholder="Age"><br><br>
-      <label for="breed">Breed:</label>
-      <input type="text" id="breed" name="breed" v-model="breed" placeholder="Breed"><br><br>
-      <label for="microchip">Has a microchip:</label>
-        <input type="radio" id="true" value="true" v-model="hasMicrochip">
-        <label for="true">Yes</label>
-        <input type="radio" id="false" value="false" v-model="hasMicrochip">
-        <label for="false">No</label><br><br>
+    <form @submit.prevent = 'handleSubmit'>
+      <label for='type'>Type of Pet:</label>
+      <input type='text' id='type' name='type' v-model='type' placeholder='Type'><br/>
+      <label for='name'>Name:</label>
+      <input type='text' id='name' name='name' v-model='name' placeholder='Name'><br/>
+      <label for='sex'>Sex:</label>
+      <select name='sex' v-model = 'sex'>
+        <option value=''>Please select one…</option>
+        <option value='female'>Female</option>
+        <option value='male'>Male</option>
+      </select><br/>
+      <label for='age'>Age:</label>
+      <input type='text' id='age' name='age' v-model='age' placeholder='Age'><br/>
+      <label for='breed'>Breed:</label>
+      <input type='text' id='breed' name='breed' v-model='breed' placeholder='Breed'><br/>
+      <label for='microchip'>Has a microchip:</label>
+        <input type='radio' id='true' value='true' v-model='hasMicrochip'>
+        <label for='true'>Yes</label>
+        <input type='radio' id='false' value='false' v-model='hasMicrochip'>
+        <label for='false'>No</label><br/>
       <div><button>Submit</button></div>
     </form>   
   </div>
@@ -38,8 +38,8 @@ export default {
       type: '',
       name: '',
       sex: '',
-      age:'',
-      breed:'',
+      age: '',
+      breed: '',
       hasMicrochip: Boolean
       }
     },
@@ -72,7 +72,6 @@ export default {
 
       await this.$router.push('/form-info')
     } 
-
   } 
            
 }    

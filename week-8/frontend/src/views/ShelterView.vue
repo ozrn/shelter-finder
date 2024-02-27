@@ -1,34 +1,36 @@
-<script>
+<template>
+  <main>
+    <h2>This is a page where all shelters are listed below</h2>
+    <shelter-card
+      v-for='shelter in shelters'
+      :shelter='shelter'
+      :key='shelter.id'
+    />
+  </main>
+</template>
 
+<script>
 import ShelterCard from '@/components/shelter-card.vue'
 
 import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'ShelterView',
-  
+
   components: {
     ShelterCard,
   },
-  
+
   computed: {
-    ...mapState(['shelters'])
+    ...mapState(['shelters']),
   },
- 
+
   methods: {
-    ...mapActions(['fetchShelters'])
+    ...mapActions(['fetchShelters']),
   },
-  
+
   created() {
     this.fetchShelters()
   }
 }
 </script>
-<template lang = 'pug'>
-main
-  h2 This is a page where all shelters are listed below
-  shelter-card(v-for = 'shelter in shelters' :shelter = 'shelter', :key='shelter.id')
-  
-</template>
-
-
