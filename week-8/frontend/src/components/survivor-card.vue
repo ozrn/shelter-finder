@@ -1,11 +1,17 @@
 <template>
-  <h2>I am a found pet and my name is {{ survivor.name }}</h2>
+  <tbody>
+    <td>{{ survivor.name }}</td>
+    <td>{{ survivor.type }}</td>
+    <td>{{ survivor.breed }}</td>
+    <td>{{ survivor.sex }}</td>
+    <td>{{ survivor.age }}</td>
+  </tbody>
 </template>
 
 <script>
 export default {
   name: 'SurvivorCard',
-  
-  props: ['survivor']
+
+  props: ['survivor'],
 }
 </script>
