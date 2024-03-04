@@ -1,16 +1,14 @@
 <template>
-  <section class='section'>
-    <div class='colums is-vcentered'>
-      <div class='column'>
-        <h2 class='is-size-1 subtitle'>Welcome to our home page</h2>
-        <p>
-          If you find a lost pet, please check out the open shelters and
-          register the pet via our online system. We will take care of the rest.
-        </p>
-      </div>
+  <article class='message'>
+    <div class='message-header'>
+      <p>Welcome to Our Home Page</p>
     </div>
-    <ShelterView />
-  </section>
+    <div class='message-body'>
+      If you find a lost pet, please check out the open shelters and register
+      the pet via our online system. We will take care of the rest.
+    </div>
+  </article>
+  <ShelterView />
 </template>
 
 <script>
@@ -19,9 +17,13 @@ import ShelterView from '../views/ShelterView.vue'
 export default {
   name: 'HomeView',
   components: {
-    ShelterView
+    ShelterView,
   }
 }
 </script>
 
-<style></style>
+<style scoped>
+.message-header {
+  background-color: #9090c1;
+}
+</style>

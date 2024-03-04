@@ -1,6 +1,5 @@
 <template>
   <main>
-    <h2>This is a page where all shelters are listed below</h2>
     <shelter-card
       v-for='shelter in shelters'
       :shelter='shelter'

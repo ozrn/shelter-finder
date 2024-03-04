@@ -50,7 +50,11 @@
  }
    
  a {
-   color: #42b983;
+   color: #8080cc;
+ }
+
+ a:hover {
+  color: #5454a4;
  }
  
  .disabled {
