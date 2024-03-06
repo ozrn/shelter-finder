@@ -3,7 +3,7 @@
    <nav class="navbar has-shadow m-4" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item">
-      <img src="../src/assets/project-img.jpg" alt="site-logo" style="max-height: 70px;">
+      <img src="../src/assets/project-img.jpg" alt="site-logo" style="max-height: 5.5rem;">
       </a>
       <a role="button" class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
        <span aria-hidden="true"></span>
@@ -40,6 +40,12 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,7 +54,7 @@ export default {
 }
 
 .navbar-item {
-  font-weight: 500;
+  font-weight: 700;
   color: #2c3e50;
   text-transform: uppercase;
 }

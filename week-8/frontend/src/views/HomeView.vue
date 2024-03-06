@@ -5,7 +5,7 @@
     </div>
     <div class='message-body'>
       If you find a lost pet, please check out the open shelters and register
-      the pet via our online system. We will take care of the rest.
+      the pet via our online system. We will take care of the rest!
     </div>
   </article>
   <ShelterView />
@@ -25,5 +25,9 @@ export default {
 <style scoped>
 .message-header {
   background-color: #9090c1;
+}
+
+.message-body {
+  font-weight: 500;
 }
 </style>

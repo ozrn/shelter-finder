@@ -10,7 +10,7 @@
           class='table is-bordered is-striped is-narrow is-hoverable is-fullwidth'
         >
           <thead class='table-head'>
-            <tr class='centered-tr'>
+            <tr>
               <th>Pet Name</th>
               <th>Pet Type</th>
               <th>Pet Breed</th>
@@ -62,5 +62,9 @@ h2 {
 
 .table-head {
   background-color: #9090c1;
+}
+
+th {
+  font-weight: 600;
 }
 </style>
