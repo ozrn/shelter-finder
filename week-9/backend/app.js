@@ -2,11 +2,13 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 require('./mongodb-connection')
+const dotEnv = require('dotenv')
 
 const survivorRouter = require('./routes/survivor')
 const shelterRouter = require('./routes/shelter')
 const stockRouter = require('./routes/stock')
 
+dotEnv.config()
 const app = express()
 
 app.use(cors({ credentials: true, origin: 'http://localhost:8080' }))
